@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="row">
+        <div class="col-sm-12">
+            {% for appName,appCla in app_D.items %}
+                <div class=" panel panel-danger">
+                <div class="panel-heading" style="margin-bottom: 10px;">
+                    <a href="{% url 'index' appName %}"></a>
+                </div>
+                <div class="panel-body">
+                <div class="table">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>table</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for foo in appCla %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td><a href="{{ appName }}/{{ foo }}">{{ foo }} </a></td>
+                                <td>
+                                    <a href="{{ appName }}/{{ foo }}"><button class="btn btn-default">查看</button></a>
+                                     <a href="{{ appName }}/{{ foo }}"><button class="btn btn-info">编辑</button></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+            {% endfor %}
+            </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

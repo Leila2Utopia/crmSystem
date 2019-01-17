@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block secondPage %}
+<li class="breadcrumb-item active">{{appName}}  /  ListView </li>
+{% endblock secondPage %}
+
+{% block content %}
+
+    <div class="panel panel-info">
+        <div class="panel panel-heading" style="margin-bottom:20px;">
+             <a href="add/">添加数据</a>
+        </div>
+        {##########################search###########################}
+        <form action="" class="search pull-right" method="get">
+            {% csrf_token %}
+            <input type="text" name="q" class="form-control" style="width:200px;display: inline-block">
+            <button class="btn btn-info">search</button>
+        </form>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            {##########################action###########################}
+            <select name="action" id="" class="form-control" style="width:200px;display: inline-block">
+                {% for action_dict in s1.get_new_actions %}
+                    <option value="{{ action_dict.name }}">{{ action_dict.desc }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn btn-info">Go</button>
+
+
+            {##########################查询结果###########################}
+            <div class="panel panel-body" style="margin-top:20px;">
+
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        {% for foo in s1.get_header %}
+                            <th>
+                                {{ foo }}
+                            </th>
+                        {% endfor %}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for new_data in s1.get_body %}
+                        <tr>
+                            {% for foo in new_data %}
+                                <td>
+                                    {{ foo }}
+                                </td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </form>
+
+    </div>
+
+{% endblock content %}
+
+

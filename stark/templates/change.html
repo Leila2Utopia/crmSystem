@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block secondPage %}
+<li class="breadcrumb-item active">edit</li>
+{% endblock secondPage %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="container-fluid">
+                <div class="panel panel-info">
+                    <div class="panel panel-heading"></div>
+                    <div class="panel panel-body">
+                        <div class="col-md-6 col-md-offset-2">
+                            {% include 'form.html' %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+{% endblock %}

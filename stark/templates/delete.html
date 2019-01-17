@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block secondPage %}
+<li class="breadcrumb-item active">delete</li>
+{% endblock secondPage %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <div class="container-fluid">
+                <div class="panel panel-info">
+                    <div class="panel panel-heading"></div>
+                    <div class="panel panel-body">
+                             <form action="" method="post">
+                                 {% csrf_token %}
+                                 <input type="submit" value="确认删除" class="btn btn-danger" >
+                                 <a href="{{ url }}" class="btn btn-info">取消</a>
+                             </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+{% endblock %}
